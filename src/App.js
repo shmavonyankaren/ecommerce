@@ -1,13 +1,40 @@
 import Header from "./components/Header";
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import Main from "./components/Main";
+import Cart from "./pages/Cart";
+import Success from "./pages/Success";
+import Contact from "./pages/Contact";
+import SuccessSent from "./pages/SuccessSent";
 
 
 export const totalQuantities = createContext(0);
 
 const App = () => {
     let [quatities, setQuantities] = useState(0);
+    const [products, setProducts] = useState([]);
+    const totalPrice = products.map(product => product.price).reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+    }, 0);
+    const addToTheCart = (item) => {
+        setProducts([
+            ...products,
+            {
+                ...item,
+            },
+        ]);
+        console.log(products);
+    };
+
+    const changeQuantities = function(param) {
+        if(param === "dec") {
+            const newQuatities = quatities - 1;
+            setQuantities(newQuatities);
+            return;
+        }
+        const newQuatities = quatities + 1;
+        setQuantities(newQuatities);
+    };
 
     return (
         <div className="">
