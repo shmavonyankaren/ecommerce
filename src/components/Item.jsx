@@ -8,7 +8,7 @@ export default function Item({className, title, price, category, description, im
             className={className}
         >
             <img 
-                className="block mx-auto h-24 w-24 rounded-full sm:mx-0 sm:shrink-0" 
+                className="block bg-cover m-0 w-24 rounded- sm:mx-0 sm:shrink-0"
                 src={image}
                 alt={title} 
             />

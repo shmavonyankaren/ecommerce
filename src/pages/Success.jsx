@@ -6,7 +6,7 @@ import { runFireWorks } from '../services/CanvasAnimation'
 export default function Success({setQuantities, setProducts}) {
  useEffect(() =>{
     runFireWorks();
- }, [])
+ }, []);
 
   return (
     <div className='min-h-[60vh]'>

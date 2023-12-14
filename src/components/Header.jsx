@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiOutlineShopping } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
-
+import Logo from "../assets/Logo.png"
 const navigation = [
     { name: 'Products', href: '/products'},
     { name: "Cart", href: '/cart'},
@@ -9,10 +9,10 @@ const navigation = [
 ];
 
 export default function Header({quatities, children}) {
-
+    
     return (
-        <div className='bg-gray-300 min-h-screen'>
-            <header className="bg-white fixed w-[100%] opacity-[0.97] hover:bg-gray-800 hover:opacity-100">
+        <div className='bg-background-image bg-cover bg-no-repeat bg-fixed min-h-screen'>
+            <header className="fixed w-[100%] opacity-[0.97] hover:bg-gray-800 hover:opacity-100">
                 <nav  className="bg-gray-800">
                     <>
                         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -24,16 +24,16 @@ export default function Header({quatities, children}) {
                                         </div>
                                         <img
                                             className="block h-8 w-auto lg:hidden"
-                                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                            src={Logo}
                                             alt="Ecommerce"
                                         />
                                         <img
-                                            className="hidden h-8 w-auto lg:block"
-                                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                            className="hidden max-h-[120px]  lg:block w-[120px]"
+                                            src={Logo}
                                             alt="Ecommerce"
                                         />
                                     </div>
-                                    <div className="hidden sm:ml-6 sm:block mt-[10px]">
+                                    <div className="hidden sm:ml-6 sm:block mt-[42px]">
                                         <div className="flex space-x-4">
                                             {navigation.map((item) => (
                                                 <NavLink

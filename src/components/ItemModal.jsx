@@ -11,6 +11,7 @@ export default function ItemModal({id, title, price, category, description, imag
 
   return (
     <div>
+      <div className='mb-0 flex'>
         <Button 
             className={btn1ClassName}
             onClick={handleShow}
@@ -32,6 +33,7 @@ export default function ItemModal({id, title, price, category, description, imag
             }}
             title="Add to the cart"
         />
+      </div>
       <Modal
         show={show}
         centered
@@ -44,17 +46,15 @@ export default function ItemModal({id, title, price, category, description, imag
           <Modal.Title>Information about product</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div
-
-          >
-            <div className='flex'>
+          <div>
+            <div className='flex flex-1 min-w-[40px]'>
               <img 
-                className="max-w-[18rem] min-w-[18rem] max-h-[18rem] min-h-[18rem"
+                className="max-w-[18rem] min-w-[18rem] max-h-[18rem] min-h-[18rem]"
                 src={image} 
                 alt={title}
               />
-              <div className='mr-2'>
-                <h4>{title}</h4>
+              <div className='mr-2 flex-1'>
+                <h4 className='text-center pr-12'>{title}</h4>
                 <div className="md:flex md:items-center mb-6">
                   <div className="md:w-1/3">
                       <label 
