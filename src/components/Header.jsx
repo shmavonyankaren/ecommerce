@@ -1,14 +1,15 @@
 import React from 'react'
 import { AiOutlineShopping } from "react-icons/ai";
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import MyLogo from "./MyLogo.jsx"
+import Navigation from './Navigation.jsx';
 const navigation = [
     { name: 'Products', href: '/products'},
     { name: "Cart", href: '/cart'},
     { name: "Contact", href: "/contact"},
 ];
 
-export default function Header({quatities, children}) {
+export default function Header({ quatities, children }) {
     
     return (
         <div className='bg-background-image bg-cover bg-no-repeat bg-fixed min-h-screen'>
@@ -19,26 +20,9 @@ export default function Header({quatities, children}) {
                             <div className="relative flex h-16 items-center justify-between">
                                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                     <MyLogo />
-                                    <div className="hidden sm:ml-6 sm:block mt-[42px]">
-                                        <div className="flex space-x-4">
-                                            {navigation.map((item) => (
-                                                <NavLink
-                                                    key={item.name}
-                                                    to={item.href}
-                                                    className={({isActive}) =>{
-                                                    return( 'no-underline rounded-md px-3 py-2 text-sm font-medium' + (
-                                                        isActive
-                                                        ? ' bg-gray-900 text-white' 
-                                                        : ' text-gray-300 hover:bg-gray-700 hover:text-white'
-                                                    ))
-                                                    }}
-                                                    aria-current={item.current ? 'page' : undefined}
-                                                >
-                                                    {item.name}
-                                                </NavLink>
-                                            ))}
-                                        </div>
-                                    </div>
+                                    <Navigation 
+                                        navigation={navigation}
+                                    />
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                     <NavLink
