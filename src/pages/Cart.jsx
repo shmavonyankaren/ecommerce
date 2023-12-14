@@ -12,30 +12,30 @@ export default function Cart( {products, totalPrice, setProducts, changeQuantiti
   
   return (
     <div className='mt-[20px]'>
-      {
+        {
           products.length
-      ?(
-      <div className='pb-16 box-border'>
-          {products.map((item, i) =>{
-            return(
-              <div key={item.id} className='mb-[10px] flex justify-center overflow-hidden'>
-                <CartItem 
-                  removeFunction={removeFunction}
-                  i={i}
-                  changeQuantities={changeQuantities}
-                  item={item}
+          ?(
+            <div className='pb-16 box-border'>
+                {products.map((item, i) =>{
+                  return(
+                    <div key={item.id} className='mb-[10px] flex justify-center overflow-hidden'>
+                      <CartItem 
+                        removeFunction={removeFunction}
+                        i={i}
+                        changeQuantities={changeQuantities}
+                        item={item}
+                      />
+                    </div>
+                  )})
+                }
+                <BuyAllButton 
+                  setQuantities={setQuantities}
+                  setProducts={setProducts}
+                  totalPrice={totalPrice}
                 />
-              </div>
-            )})
-          }
-          <BuyAllButton 
-            setQuantities={setQuantities}
-            setProducts={setProducts}
-            totalPrice={totalPrice}
-          />
-      </div>
-      ): <ToProducts />
-      }
+            </div>
+          ): <ToProducts />
+        }
     </div>
   )
 }
