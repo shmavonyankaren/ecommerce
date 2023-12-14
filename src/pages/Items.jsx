@@ -6,6 +6,7 @@ import Poster2 from "../assets/Poster2.png"
 // import Poster3 from "../assets/Poster3.png"
 import Loading from '../components/Loading'
 import { useEffect, useState } from "react";
+import Preview from "../components/Preview.jsx";
 export default function Items({ data, addToTheCart, changeQuantities, categories, filterByCategory, setCategories, changeSorting }) {
   // const posters = [
   //   Poster1,
@@ -35,14 +36,9 @@ export default function Items({ data, addToTheCart, changeQuantities, categories
       {data
       ?(
       <div>
-        <div className='mt-4 w-[100%] flex justify-center'>
-            <div className='pt-4 flex justify-center bg-white/90 rounded-lg w-[86%] h-[450px]'>
-                <img 
-                  src={Poster2}
-                  alt="Poster"
-                />
-            </div>
-        </div>
+        <Preview 
+          srcForImage={Poster2}
+        />
         <div>
           <ul className='flex justify-around mt-4'>
             {categories.map((item) => {
