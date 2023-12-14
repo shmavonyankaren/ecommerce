@@ -2,10 +2,20 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from './Button.jsx';
 import { useState } from 'react';
+import CategoryForModal from './CategoryForModal.jsx';
+import Description from './Description.jsx';
+import ButtonsDivForModal from './ButtonsDivForModal.jsx';
 
 export default function ItemModal({id, title, price, category, description, image, addToTheCart, changeQuantities, btn1ClassName, btn2ClassName }) {
   const [show, setShow] = useState(false);
-
+  const product = {
+    id,
+    title,
+    price,
+    category,
+    description,
+    image,
+  };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -22,14 +32,7 @@ export default function ItemModal({id, title, price, category, description, imag
             onClick={(e) =>{
               e.preventDefault();
               changeQuantities();
-              addToTheCart({
-                id,
-                title,
-                price,
-                category,
-                description,
-                image
-              });
+              addToTheCart(product);
             }}
             title="Add to the cart"
         />
@@ -55,70 +58,27 @@ export default function ItemModal({id, title, price, category, description, imag
               />
               <div className='mr-2 flex-1'>
                 <h4 className='text-center pr-12'>{title}</h4>
-                <div className="md:flex md:items-center mb-6">
-                  <div className="md:w-1/3">
-                      <label 
-                          className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" 
-                          for="inline-full-name"
-                      >
-                          Price :
-                      </label>
-                  </div>
-                  <div className="md:w-2/3">
-                    <h3>{price} $</h3>
-                  </div>
-                </div>
-                <div className="md:flex md:items-center mb-6">
-                  <div className="md:w-1/3">
-                      <label 
-                          className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" 
-                          for="inline-full-name"
-                      >
-                          Categpory :
-                      </label>
-                  </div>
-                  <div className="md:w-2/3">
-                    <h3>{category}</h3>
-                  </div>
-                </div> 
-                <div className='flex justify-center'>
-                  <Button 
-                        type="button"
-                        className={`${btn1ClassName} mt-4 mr-3 px-4  py-2` }
-                        onClick={handleClose}
-                        title="Close"
-                  />
-                  <Button
-                        type="button"
-                        className={`${btn2ClassName} mt-4 ml-3` }
-                        onClick={() =>{
-                          changeQuantities();
-                          addToTheCart({
-                            id,
-                            title,
-                            price,
-                            category,
-                            description,
-                            image,
-                          });
-                          handleClose();
-                        }}
-                        title="Add to the cart"
-                  />
-                </div>        
+                <CategoryForModal 
+                  text="Price"
+                  category={price}
+                  difference="$"
+                />
+                <CategoryForModal 
+                  text="Category"
+                  category={category}
+                  difference={null}
+                />
+                <ButtonsDivForModal 
+                  product={product}
+                  handleClose={handleClose}
+                  btn1ClassName={btn1ClassName}
+                  btn2ClassName={btn2ClassName}
+                  addToTheCart={addToTheCart}
+                  changeQuantities={changeQuantities}
+                />
               </div>
             </div>
-            <div>
-              <label 
-                  className="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" 
-                  for="inline-full-name"
-              >
-                  Description
-              </label>
-              <h6>
-              {description}
-              </h6>
-            </div>
+            <Description description={description}/>
           </div>
         </Modal.Body>
         <Modal.Footer>
