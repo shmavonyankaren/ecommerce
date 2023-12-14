@@ -6,6 +6,7 @@ export default function Main({ addToTheCart, changeQuantities }) {
   const [data, setdata] = useState([]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  
   useEffect(() =>{
     try {
       const url = 'https://fakestoreapi.com/products/';

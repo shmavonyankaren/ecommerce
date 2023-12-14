@@ -7,6 +7,7 @@ import Poster2 from "../assets/Poster2.png"
 import Loading from '../components/Loading'
 import { useEffect, useState } from "react";
 import Preview from "../components/Preview.jsx";
+import Categories from "../components/Categories.jsx";
 export default function Items({ data, addToTheCart, changeQuantities, categories, filterByCategory, setCategories, changeSorting }) {
   // const posters = [
   //   Poster1,
@@ -39,38 +40,11 @@ export default function Items({ data, addToTheCart, changeQuantities, categories
         <Preview 
           srcForImage={Poster2}
         />
-        <div>
-          <ul className='flex justify-around mt-4'>
-            {categories.map((item) => {
-              return (
-                <button
-                  className={item.active ? 'px-[50px] py-1 rounded-lg bg-black/70 border-white border-2 text-white text-lg font-semibold' :'px-[50px] py-1 border-black border-1 rounded-lg bg-white/30 text-lg font-semibold'}
-                  onClick={(e) => {
-                    filterByCategory(item.title);
-                    const newCategories = categories.map((category) => {
-                      if(category.title === item.title) {
-                          return {
-                            title: category.title,
-                            active: true
-                          }
-                      }
-
-                      return {
-                        title: category.title,
-                        active: false,
-                      }
-                    })
-                    setCategories(newCategories);
-                  }}
-                >
-                  <li>
-                    {item.title}
-                  </li>
-                </button>
-            )
-            })}
-          </ul>
-        </div>
+        <Categories 
+          filterByCategory={filterByCategory}
+          categories={categories}
+          setCategories={setCategories}
+        />
         <div className="bg-white rounded-lg max-w-[230px] min-w-[250px] px-3 py-1 ml-[50px] mt-5">
             <label 
               className="text-lg font-semibold mr-2"
