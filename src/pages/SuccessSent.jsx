@@ -19,7 +19,7 @@ export default function SuccessSent() {
                     className="ml-[20px] mt-[10px] px-4 py-[10px] text-sm text-white bg-purple-800 font-semibold rounded-lg border border-purple-900 hover:text-white hover:bg-purple-900 hover:border-transparent hover:border-white focus:outline-none focus:ring-2 focus:ring-purple-900 focus:ring-offset-2"
                     >
                         Anything else? 
-            </button>
+                </button>
             </NavLink>
         </div>
     </div>

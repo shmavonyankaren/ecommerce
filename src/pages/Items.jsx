@@ -45,35 +45,11 @@ export default function Items({ data, addToTheCart, changeQuantities, categories
           categories={categories}
           setCategories={setCategories}
         />
-        <div className="bg-white rounded-lg max-w-[230px] min-w-[250px] px-3 py-1 ml-[50px] mt-5">
-            <label 
-              className="text-lg font-semibold mr-2"
-              for="cars"
-            >
-              Choose sorting:
-            </label>
-            <select 
-              className="font-semibold text-lg" 
-              name="Sort" 
-              id="sort"
-              value={sortingOption}
-              onChange={e => setSortingOption(e.target.value)}
-            >
-                <option 
-                  value="none"
-                >None</option>
-                <option 
-                  value="desc" 
-                >Desc</option>
-                <option 
-                  value="asc"
-                >Asc</option>
-            </select>
-        </div>
         <div className='flex flex-wrap justify-center min-w-[100] mt-3'>
         {
             data.map(el => {
               const changedTitle = el.title.split(" ").length >= 6 ? el.title.split(" ").slice(0, 6).join(" ") + ".." : el.title;
+              
               return(
               <div className='mx-2 my-2'>
                 <Item 
