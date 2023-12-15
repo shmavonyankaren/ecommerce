@@ -1,23 +1,19 @@
 import React from 'react'
 import Button from './Button';
 
-export default function ButtonsDivForModal({ btn1ClassName, btn2ClassName, product, addToTheCart, changeQuantities, handle, title1, title2 }) {
+export default function ButtonsDivForModal({ btn1ClassName, btn2ClassName, onClickFunc1, onClickFunc2, title1, title2 }) {
     return (
         <div>
             <Button 
                     type="button"
                     className={btn1ClassName}
-                    onClick={handle}
+                    onClick={onClickFunc1}
                     title={title1}
             />
             <Button
                     type="button"
                     className={btn2ClassName}
-                    onClick={() =>{
-                    changeQuantities();
-                    addToTheCart(product);
-                    handle();
-                    }}
+                    onClick={onClickFunc2}
                     title={title2}
             />
         </div>

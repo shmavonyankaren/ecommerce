@@ -19,16 +19,20 @@ export default function ItemModal({ id, title, price, category, description, ima
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const onClickFunc = () =>{
+    changeQuantities();
+    addToTheCart(product);
+    handleClose();
+}
+
   return (
     <div>
       <div className='mb-0 flex'>
         <ButtonsDivForModal 
-          product={product}
-          handle={handleShow}
           btn1ClassName={btn1ClassName}
           btn2ClassName={btn2ClassName}
-          addToTheCart={addToTheCart}
-          changeQuantities={changeQuantities}
+          onClickFunc1={handleShow}
+          onClickFunc2={onClickFunc}
           title1="More"
           title2="Add to the cart"
         />
@@ -66,12 +70,10 @@ export default function ItemModal({ id, title, price, category, description, ima
                 />
                 <div className='flex justify-center'>
                   <ButtonsDivForModal 
-                    product={product}
-                    handle={handleClose}
                     btn1ClassName={`${btn1ClassName} mt-4 mr-3 px-4  py-2` }
                     btn2ClassName={`${btn2ClassName} mt-4 ml-3`}
-                    addToTheCart={addToTheCart}
-                    changeQuantities={changeQuantities}
+                    onClickFunc1={handleClose}
+                    onClickFunc2={onClickFunc}
                     title1="Close"
                     title2="Add to the cart"
                   />
