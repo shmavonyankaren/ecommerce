@@ -38,7 +38,7 @@ const App = () => {
     };
 
     return (
-        <div className="">
+        <div>
             <BrowserRouter>
                 <Header quatities={quatities} >
                     <Routes>
