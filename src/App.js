@@ -6,6 +6,7 @@ import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import Contact from "./pages/Contact";
 import SuccessSent from "./pages/SuccessSent";
+import Error from "./pages/Error";
 
 
 export const totalQuantities = createContext(0);
@@ -41,7 +42,8 @@ const App = () => {
             <BrowserRouter>
                 <Header quatities={quatities} >
                     <Routes>
-                        <Route path="/*" element={<Main addToTheCart={addToTheCart} changeQuantities={changeQuantities}/>} />
+                        <Route path="/" element={<Main addToTheCart={addToTheCart} changeQuantities={changeQuantities}/>} />
+                        <Route path="/*" element={<Error />} />
                         <Route path="/products" element={<Main addToTheCart={addToTheCart} changeQuantities={changeQuantities}/>} />
                         <Route path="/cart" element={<Cart setQuantities={setQuantities} changeQuantities={changeQuantities} products={products} totalPrice={totalPrice} setProducts={setProducts}/>} />
                         <Route path="/success" element={<Success setProducts={setProducts} setQuantities={setQuantities} />} />

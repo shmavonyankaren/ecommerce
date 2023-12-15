@@ -1,24 +1,24 @@
 import React from 'react'
 import Button from './Button';
 
-export default function ButtonsDivForModal({ btn1ClassName, btn2ClassName, product, addToTheCart, changeQuantities, handleClose }) {
+export default function ButtonsDivForModal({ btn1ClassName, btn2ClassName, product, addToTheCart, changeQuantities, handle, title1, title2 }) {
     return (
-        <div className='flex justify-center'>
+        <div>
             <Button 
                     type="button"
-                    className={`${btn1ClassName} mt-4 mr-3 px-4  py-2` }
-                    onClick={handleClose}
-                    title="Close"
+                    className={btn1ClassName}
+                    onClick={handle}
+                    title={title1}
             />
             <Button
                     type="button"
-                    className={`${btn2ClassName} mt-4 ml-3` }
+                    className={btn2ClassName}
                     onClick={() =>{
                     changeQuantities();
                     addToTheCart(product);
-                    handleClose();
+                    handle();
                     }}
-                    title="Add to the cart"
+                    title={title2}
             />
         </div>
     ) 

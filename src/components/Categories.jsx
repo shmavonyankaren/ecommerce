@@ -4,10 +4,11 @@ export default function Categories({ categories, filterByCategory, setCategories
     return (
         <div>
             <ul className='flex justify-around mt-4'>
-                {categories.map((item) => {
+                {categories.map((item, i) => {
                     return (
                         <button
                             className={item.active ? 'px-[50px] py-1 rounded-lg bg-black/70 border-white border-2 text-white text-lg font-semibold' :'px-[50px] py-1 border-black border-1 rounded-lg bg-white/30 text-lg font-semibold'}
+                            key={`${item}-${i}`}
                             onClick={(e) => {
                                 filterByCategory(item.title);
                                 const newCategories = categories.map((category) => {

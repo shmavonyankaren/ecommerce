@@ -1,12 +1,12 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal';
-import Button from './Button.jsx';
 import { useState } from 'react';
 import CategoryForModal from './CategoryForModal.jsx';
 import Description from './Description.jsx';
 import ButtonsDivForModal from './ButtonsDivForModal.jsx';
 
-export default function ItemModal({id, title, price, category, description, image, addToTheCart, changeQuantities, btn1ClassName, btn2ClassName }) {
+export default function ItemModal({ id, title, price, category, description, image, addToTheCart, changeQuantities, btn1ClassName, btn2ClassName }) {
+
   const [show, setShow] = useState(false);
   const product = {
     id,
@@ -22,19 +22,15 @@ export default function ItemModal({id, title, price, category, description, imag
   return (
     <div>
       <div className='mb-0 flex'>
-        <Button 
-            className={btn1ClassName}
-            onClick={handleShow}
-            title="More"
-        />
-        <Button
-            className={btn2ClassName}
-            onClick={(e) =>{
-              e.preventDefault();
-              changeQuantities();
-              addToTheCart(product);
-            }}
-            title="Add to the cart"
+        <ButtonsDivForModal 
+          product={product}
+          handle={handleShow}
+          btn1ClassName={btn1ClassName}
+          btn2ClassName={btn2ClassName}
+          addToTheCart={addToTheCart}
+          changeQuantities={changeQuantities}
+          title1="More"
+          title2="Add to the cart"
         />
       </div>
       <Modal
@@ -68,14 +64,18 @@ export default function ItemModal({id, title, price, category, description, imag
                   category={category}
                   difference={null}
                 />
-                <ButtonsDivForModal 
-                  product={product}
-                  handleClose={handleClose}
-                  btn1ClassName={btn1ClassName}
-                  btn2ClassName={btn2ClassName}
-                  addToTheCart={addToTheCart}
-                  changeQuantities={changeQuantities}
-                />
+                <div className='flex justify-center'>
+                  <ButtonsDivForModal 
+                    product={product}
+                    handle={handleClose}
+                    btn1ClassName={`${btn1ClassName} mt-4 mr-3 px-4  py-2` }
+                    btn2ClassName={`${btn2ClassName} mt-4 ml-3`}
+                    addToTheCart={addToTheCart}
+                    changeQuantities={changeQuantities}
+                    title1="Close"
+                    title2="Add to the cart"
+                  />
+                </div>
               </div>
             </div>
             <Description description={description}/>
