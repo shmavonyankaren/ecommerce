@@ -1,9 +1,37 @@
+// import React, { useState } from 'react'
 import Item from "../components/Item.jsx"
+// import Priview from "../assets/Priview.png"
+// import Poster1 from "../assets/Poster1.png"
 import Poster2 from "../assets/Poster2.png"
+// import Poster3 from "../assets/Poster3.png"
 import Loading from '../components/Loading'
+// import { useEffect, useState } from "react";
 import Preview from "../components/Preview.jsx";
 import Categories from "../components/Categories.jsx";
 export default function Items({ data, addToTheCart, changeQuantities, categories, filterByCategory, setCategories, changeSorting }) {
+  // const posters = [
+  //   Poster1,
+  //   Poster2,
+  //   Poster3,
+  //   Priview,
+  // ];
+  // const [currenPost, setCurrentPost] = useState(posters[0]);
+  // let [number, setNumber] = useState(0);
+  // setInterval(changePoster, 2000);
+  // function changePoster() {
+  //   if(number === posters.length) {
+  //     setNumber(0);
+  //     setCurrentPost(posters[number]);
+  //     return;
+  //   }
+  //   setCurrentPost(posters[number]);
+  //   setNumber(number+1);
+  //   return;
+  // };
+  // const [sortingOption, setSortingOption] = useState('None');
+  // useEffect(()=>{
+  //   changeSorting(sortingOption);
+  // }) 
   return (
     <div className=''>
       {data
