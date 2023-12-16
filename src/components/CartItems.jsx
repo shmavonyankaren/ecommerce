@@ -6,22 +6,22 @@ export default function CartItems({ products, changeQuantities, removeFunction, 
   return (
     <div>
         {products.map((item, i) =>{
-                  return(
-                    <div key={item.id} className='mb-[10px] flex justify-center overflow-hidden'>
-                      <CartItem
+            return(
+                <div key={item.id} className='mb-[10px] flex justify-center overflow-hidden'>
+                    <CartItem
                         removeFunction={removeFunction}
                         i={i}
                         changeQuantities={changeQuantities}
                         item={item}
-                      />
-                    </div>
-                  )})
-                }
-                <BuyAllButton
-                  setQuantities={setQuantities}
-                  setProducts={setProducts}
-                  totalPrice={totalPrice}
-                />
+                    />
+                </div>
+            )})
+        }
+        <BuyAllButton
+            setQuantities={setQuantities}
+            setProducts={setProducts}
+            totalPrice={totalPrice}
+        />
     </div>
   )
 }
